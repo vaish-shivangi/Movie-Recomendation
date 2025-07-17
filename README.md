@@ -35,14 +35,24 @@ This project uses the [TMDB 5000 Movie Dataset](https://www.kaggle.com/datasets/
 | Streamlit      | Frontend Framework for Web UI                    |
 | TMDB API       | To Fetch Movie Posters & Metadata                |
 
+## 🧠 How It Works
 
-## 🧠 Working
+The Movie Recommendation System follows a structured pipeline to deliver personalized movie suggestions based on user input. Below is the process visualized in a flowchart:
 
-1. The movie dataset is preprocessed to combine textual metadata (like overview and genres).
-2. A **TF-IDF Vectorizer** transforms this text into numerical vectors.
-3. **Cosine similarity** is used to compute how similar each movie is to the others based on these vectors.
-4. When a user selects a movie, the system returns the top most similar movies using this similarity score.
-
+```
+graph TD
+    A[Start: Load TMDB 5000 Dataset] -->|Read CSV| B[Preprocess Metadata]
+    B -->|Combine Genres, Overviews| C[Clean and Format Text Data]
+    C --> D[Apply TF-IDF Vectorizer]
+    D -->|Convert Text to Vectors| E[Compute Cosine Similarity Matrix]
+    E --> F[Store Similarity Matrix in Pickle]
+    F --> G[User Opens Streamlit App]
+    G --> H[Select Movie from Dropdown]
+    H --> I[Retrieve Top-N Similar Movies]
+    I -->|Query TMDB API| J[Fetch Movie Posters and Metadata]
+    J --> K[Display Recommendations with Posters]
+    K --> L[User Enjoys Suggestions]
+```
 ## 📁 Project Structure
 
 ```bash
