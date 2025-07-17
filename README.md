@@ -52,7 +52,7 @@ graph TD
     I -->|Query TMDB API| J[Fetch Movie Posters and Metadata]
     J --> K[Display Recommendations with Posters]
     K --> L[End: User Enjoys Suggestions]
-
+```
     %% Styling for nodes
     style A fill:#4CAF50,stroke:#2E7D32,color:#fff
     style B fill:#2196F3,stroke:#1565C0,color:#fff
@@ -69,7 +69,7 @@ graph TD
 
     %% Styling for edges
     linkStyle 0,1,2,3,4,5,6,7,8,9,10 stroke:#333,stroke-width:2px
-```
+
 ## 📁 Project Structure
 
 ```bash
