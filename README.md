@@ -1,75 +1,84 @@
-
-
-# 🎥 Movie Recommendation System using Machine Learning
-
----
+# 🎥 Project: Movie Recommendation System using Machine Learning
 
 ## 📌 Project Overview
 
-Welcome to the **Movie Recommendation System**, a smart application built with **Machine Learning**, **Python**, and **Streamlit**! This project delivers personalized movie suggestions using **content-based filtering**, leveraging movie overviews and genres. By employing **cosine similarity**, it identifies and recommends movies that align with your preferences, complete with vibrant poster previews fetched via the **TMDB API**.
+This project is a **Movie Recommendation System** built using **Machine Learning**, **Python**, and **Streamlit**. It recommends movies similar to the user's choice by leveraging **content-based filtering** based on movie overviews and genres. It uses **cosine similarity** to calculate the similarity score between movies and suggest the most relevant ones. The goal is to enhance user experience by offering intelligent movie suggestions with poster previews using the **TMDB API**.
 
----
 
-## 🎥 Live Demo
 
-Experience the system in action!  
-👉 **[Watch the Demo Video](https://drive.google.com/file/d/1WNSKXbmn5a-7CR3hFn33XDZuAj45bQbS/view?usp=sharing)**
 
----
+## 🎥Live Demo
+[Click here to watch the demo video](https://drive.google.com/file/d/1WNSKXbmn5a-7CR3hFn33XDZuAj45bQbS/view?usp=sharing)
 
-## ✅ Key Functionalities
 
-- 🔍 **Content-Based Filtering**: Recommends movies based on overviews and genres.
-- 📦 **Large Dataset**: Utilizes a preprocessed dataset of over 5,000 movies from TMDB.
-- 📑 **Cosine Similarity**: Computes similarity scores for accurate recommendations.
-- 🎨 **Interactive UI**: Built with Streamlit for a seamless user experience.
-- 🎞️ **Movie Posters**: Fetches vibrant posters using the TMDB API.
+## ✅ Functionalities
 
----
-
+- 🔍 **Content-Based Filtering** using movie overviews and genres
+- 📦 Preprocessed dataset of over 5,000 movies (from TMDB)
+- 📑 Similarity computation using cosine similarity
+- 🎨 User interface built with Streamlit
+- 🎞️ Poster images fetched from TMDB API
+  
 ## 📊 Dataset
 
-The project is powered by the **[TMDB 5000 Movie Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)** from Kaggle, containing rich metadata for thousands of movies.
+This project uses the [TMDB 5000 Movie Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata) from Kaggle.
 
----
 
 ## 🔧 Tools & Technologies
 
-| **Tool**          | **Purpose**                                      |
-|-------------------|--------------------------------------------------|
-| 🐍 **Python**     | Core programming language                        |
-| 📊 **Pandas**     | Data handling and manipulation                   |
-| 🤖 **Scikit-learn** | Cosine similarity computation                  |
-| 💾 **Pickle**     | Saving machine learning model artifacts          |
-| 🌐 **Streamlit**  | Frontend framework for interactive web UI       |
-| 🎬 **TMDB API**   | Fetches movie posters and metadata              |
-
----
+| Tool           | Description                                      |
+|----------------|--------------------------------------------------|
+| Python         | Programming Language                             |
+| Pandas         | Data Handling & Manipulation                     |
+| Scikit-learn   | Cosine Similarity Computation                    |
+| Pickle         | Saving ML Model Artifacts                        |
+| Streamlit      | Frontend Framework for Web UI                    |
+| TMDB API       | To Fetch Movie Posters & Metadata                |
 
 ## 🧠 How It Works
 
-The Movie Recommendation System follows a streamlined pipeline to deliver personalized movie suggestions. Below is the process visualized in a flowchart:
+The Movie Recommendation System follows a structured pipeline to deliver personalized movie suggestions based on user input. Below is the process visualized in a flowchart:
 
-```mermaid
-graph TD
-    A[User Opens Streamlit App] --> B[Select Movie from Dropdown]
-    B --> C[Load Pre-computed Similarity Matrix]
-    C --> D[Extract Features from Selection]
-    D --> E[k-NN Algorithm Find Neighbors]
-    E --> F[Fetch Movie Posters via TMDB API]
-    F --> G[Display 5 Similar Movies in Grid]
+```
+┌────────────────────────────┐    ┌────────────────────────────┐    ┌────────────────────────────┐
+│          Start             │───▶│        Read CSV            │───▶│     Preprocess Metadata    │
+│   Load TMDB 5000 Dataset   │    │     Load Movie Metadata    │    │ Combine Genres & Overviews │
+└────────────────────────────┘    └────────────────────────────┘    └────────────────────────────┘
+                                                                               │
+                                                                               ▼
+┌────────────────────────────┐    ┌────────────────────────────┐    ┌────────────────────────────┐
+│    Clean & Format Text     │───▶│  Apply TF-IDF Vectorizer   │───▶│ Compute Cosine Similarity  │
+│ Remove Punctuation/Stopwords│   │ Convert Text to Vectors    │    │   Create Similarity Matrix │
+└────────────────────────────┘    └────────────────────────────┘    └────────────────────────────┘
+                                                                               │
+              _________________________________________________________________|
+             |
+             ▼
+┌────────────────────────────┐
+│    Save similarity.pkl     │
+│    Store Similarity Matrix │
+└────────────────────────────┘
+             │
+             ▼
+┌────────────────────────────┐    ┌────────────────────────────┐    ┌────────────────────────────┐
+│    Open Streamlit App      │───▶│   Select Movie from List   │───▶│      Retrieve Top-N        |
+|                            |    |                            |    |      Recommendations       |
+└────────────────────────────┘    └────────────────────────────┘    └────────────────────────────┘
+                                                                               │
+              _________________________________________________________________|
+             |
+             ▼                                                                 
+┌────────────────────────────┐    ┌────────────────────────────┐
+│    Query TMDB API         │───▶│ Display Posters & Metadata │
+│ Get Posters, Details, etc │    │   Show Final Suggestions   │
+└────────────────────────────┘    └────────────────────────────┘
+                                           │
+                                           ▼
+                             ┌────────────────────────────┐
+                             │            End             │
+                             │   User Enjoys Suggestions  │
+                             └────────────────────────────┘
 
-    %% Styling for nodes (similar to the image's clean, white-on-dark theme)
-    style A fill:#fff,stroke:#000,color:#000
-    style B fill:#fff,stroke:#000,color:#000
-    style C fill:#fff,stroke:#000,color:#000
-    style D fill:#fff,stroke:#000,color:#000
-    style E fill:#fff,stroke:#000,color:#000
-    style F fill:#fff,stroke:#000,color:#000
-    style G fill:#fff,stroke:#000,color:#000
-
-    %% Styling for edges
-    linkStyle 0,1,2,3,4,5 stroke:#000,stroke-width:2px
 ```
 
 ## 📁 Project Structure
@@ -91,6 +100,3 @@ Movie-Recommendation/
 **Shivangi**  
 _Data Science & Analytics Enthusiast_  
 [GitHub Profile](https://github.com/vaish-shivangi)
-
-
-
