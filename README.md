@@ -51,7 +51,24 @@ graph TD
     H --> I[Retrieve Top-N Similar Movies]
     I -->|Query TMDB API| J[Fetch Movie Posters and Metadata]
     J --> K[Display Recommendations with Posters]
-    K --> L[User Enjoys Suggestions]
+    K --> L[End: User Enjoys Suggestions]
+
+    %% Styling for nodes
+    style A fill:#4CAF50,stroke:#2E7D32,color:#fff
+    style B fill:#2196F3,stroke:#1565C0,color:#fff
+    style C fill:#2196F3,stroke:#1565C0,color:#fff
+    style D fill:#FF9800,stroke:#F57C00,color:#fff
+    style E fill:#FF9800,stroke:#F57C00,color:#fff
+    style F fill:#9C27B0,stroke:#7B1FA2,color:#fff
+    style G fill:#E91E63,stroke:#C2185B,color:#fff
+    style H fill:#E91E63,stroke:#C2185B,color:#fff
+    style I fill:#009688,stroke:#00796B,color:#fff
+    style J fill:#009688,stroke:#00796B,color:#fff
+    style K fill:#4CAF50,stroke:#2E7D32,color:#fff
+    style L fill:#4CAF50,stroke:#2E7D32,color:#fff
+
+    %% Styling for edges
+    linkStyle 0,1,2,3,4,5,6,7,8,9,10 stroke:#333,stroke-width:2px
 ```
 ## 📁 Project Structure
 
