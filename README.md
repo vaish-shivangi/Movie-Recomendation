@@ -69,8 +69,8 @@ The Movie Recommendation System follows a structured pipeline to deliver persona
              |
              ▼                                                                 
 ┌────────────────────────────┐    ┌────────────────────────────┐
-│    Query TMDB API         │───▶│ Display Posters & Metadata │
-│ Get Posters, Details, etc │    │   Show Final Suggestions   │
+│    Query TMDB API          │───▶│ Display Posters & Metadata │
+│ Get Posters, Details, etc  │    │   Show Final Suggestions   │
 └────────────────────────────┘    └────────────────────────────┘
                                            │
                                            ▼
